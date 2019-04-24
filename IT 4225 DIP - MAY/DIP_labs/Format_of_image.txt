@@ -1,0 +1,1 @@
+The format of the CT image : 16 bits signed, no header, 512 x 512 

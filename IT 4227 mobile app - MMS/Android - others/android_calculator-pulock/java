@@ -1,0 +1,255 @@
+package com.example.oliullah.calculator;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15,b16,b17,b18,b19,b20;
+    EditText input;
+    TextView result;
+    float mvOne, mvTwo,sq;
+    boolean Addition,Subtract,Mul,Div,Log,Sin;
+    String l;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        b1=(Button) findViewById(R.id.btn_delete);
+        b2=(Button) findViewById(R.id.btn_sin);
+        b3=(Button) findViewById(R.id.btn_sqrt);
+        b4=(Button) findViewById(R.id.btn_log);
+        b5=(Button) findViewById(R.id.btn_seven);
+        b6=(Button) findViewById(R.id.btn_eight);
+        b7=(Button) findViewById(R.id.btn_nine);
+        b8=(Button) findViewById(R.id.btn_multiple);
+        b9=(Button) findViewById(R.id.btn_four);
+        b10=(Button) findViewById(R.id.btn_five);
+        b11=(Button) findViewById(R.id.btn_six);
+        b12=(Button) findViewById(R.id.btn_minus);
+        b13=(Button) findViewById(R.id.btn_one);
+        b14=(Button) findViewById(R.id.btn_two);
+        b15=(Button) findViewById(R.id.btn_three);
+        b16=(Button) findViewById(R.id.btn_plus);
+        b17=(Button) findViewById(R.id.btn_dot);
+        b18=(Button) findViewById(R.id.btn_zero);
+        b19=(Button) findViewById(R.id.btn_divide);
+        b20=(Button) findViewById(R.id.btn_equal);
+        input=(EditText) findViewById(R.id.edit1);
+        result=(TextView) findViewById(R.id.show);
+
+        b13.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                input.setText(input.getText()+"1");
+            }
+        });
+
+        b14.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                input.setText(input.getText()+"2");
+            }
+        });
+
+        b15.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                input.setText(input.getText()+"3");
+            }
+        });
+
+        b9.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                input.setText(input.getText()+"4");
+            }
+        });
+
+        b10.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                input.setText(input.getText()+"5");
+            }
+        });
+
+        b11.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                input.setText(input.getText()+"6");
+            }
+        });
+
+        b5.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                input.setText(input.getText()+"7");
+            }
+        });
+
+        b6.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                input.setText(input.getText()+"8");
+            }
+        });
+
+        b7.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                input.setText(input.getText()+"9");
+            }
+        });
+
+        b18.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                input.setText(input.getText()+"0");
+            }
+        });
+
+
+
+        b16.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if (input==null){
+                    input.setText("");
+                }
+                else{
+                    mvOne=Float.parseFloat(input.getText()+"");
+                    Addition=true;
+                    input.setText(null);
+                }
+            }
+        });
+
+        b12.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                mvOne=Float.parseFloat(input.getText()+"");
+                Subtract=true;
+                input.setText(null);
+            }
+        });
+
+        b8.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                mvOne=Float.parseFloat(input.getText()+"");
+                Mul=true;
+                input.setText(null);
+            }
+        });
+
+        b19.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                mvOne=Float.parseFloat(input.getText()+"");
+                Div=true;
+                input.setText(null);
+            }
+        });
+
+
+        b4.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Log=true;
+                l=input.getText()+"";
+                input.setText(l);
+            }
+        });
+
+
+        b2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Sin=true;
+                l=input.getText()+"";
+                input.setText(l);
+            }
+        });
+
+
+        b3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public  void onClick(View v){
+                mvOne=Float.parseFloat(input.getText()+"");
+
+                result.setText(mvOne*mvOne+"");
+            }
+        });
+
+//        b4.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public  void onClick(View v){
+//                mvOne=Float.parseFloat(input.getText()+"");
+//
+//                result.setText(Math.log10(mvOne)+"");
+//            }
+//        });
+
+        b20.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                mvTwo=Float.parseFloat(input.getText()+"");
+
+                if(Addition==true){
+                    result.setText(mvOne+mvTwo+"");
+                    Addition=false;
+                }
+
+                if(Subtract==true){
+                    result.setText(mvOne-mvTwo+"");
+                    Subtract=false;
+                }
+
+                if(Mul==true){
+                    result.setText(mvOne*mvTwo+"");
+                    Mul=false;
+                }
+
+                if(Div==true){
+                    result.setText(mvOne/mvTwo+"");
+                    Div=false;
+                }
+
+                if(Log==true){
+                    result.setText(Math.log10(mvTwo)+"");
+                    Log=false;
+                }
+
+                if(Sin==true){
+                    result.setText(Math.sin(mvTwo)+"");
+                    Sin=false;
+                }
+
+            }
+        });
+
+        b1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+                input.setText(null);
+                result.setText(null);
+            }
+        });
+
+        b17.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+                input.setText(input.getText()+".");
+            }
+        });
+
+
+
+    }
+}
+
